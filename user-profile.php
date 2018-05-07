@@ -95,7 +95,7 @@
 
                 <?php if(isset($_COOKIE['session_cookie'])) {
                 echo "
-						                <form method='post' action='endpoint.php' onsubmit='submitForm(this);'>
+						                <form method='post' action='csrf-validate.php' onsubmit='submitForm(this);'>
 
                             <!-- csrf token creation -->
                               <input type='hidden' name='csrf_Token' id='csrf_Token' value=''>
