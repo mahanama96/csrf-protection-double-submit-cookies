@@ -19,8 +19,43 @@
     </head>
 
     <body>
+      <!-- navbar start -->
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="index.php">CSRF Protection</a>
+          </div>
+          <ul class="nav navbar-nav">
+
+            <?php
+              if(!isset($_COOKIE['session_cookie'])) {
+                echo "<li><a href='user-profile.php'></t>Profile</t></a></li>";
+              }
+            ?>
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+
+          <?php
+            if(!isset($_COOKIE['session_cookie'])) {
+              echo "<li><a href='user-login.php'> Log In </a></li>";
+            }
+          ?>
+
+          <?php
+            if(isset($_COOKIE['session_cookie'])) {
+              echo "<li><a href='user-logout.php'> Log Out </a></li>";
+            }
+          ?>
+
+          </ul>
+        </div>
+      </nav>
+      <!-- navbar end -->
+
+      <!-- body content start -->
       <div class="container">
-    <div class="row" align="center" style="padding-top: 100px;">
+        <div class="row" align="center" style="padding-top: 100px;">
         <div class="col-12">
 
             <div class="card">
@@ -60,29 +95,32 @@
 
                 <?php if(isset($_COOKIE['session_cookie'])) {
                 echo "
-						<form method='post' action='endpoint.php' onsubmit='submitForm(this);'>
-                            <!-- CSRF Token -->
-                                <input type='hidden' name='csrf_Token' id='csrf_Token' value=''>
-                                <!--  -->
+						                <form method='post' action='endpoint.php' onsubmit='submitForm(this);'>
+
+                            <!-- csrf token creation -->
+                              <input type='hidden' name='csrf_Token' id='csrf_Token' value=''>
+                            <!-- csrf token end  -->
+
+                            <!-- detail form content start -->
                             <div class='form-group row'>
                             	<label for='name' class='col-sm-2 col-form-label'>Full Name</label>
-                            <div class='col-sm-10'>
+                              <div class='col-sm-10'>
                                 <input type='text' class='form-control' id='name' name='name' placeholder='Full Name' required>
-                            </div>
+                              </div>
                             </div>
 
                           	<div class='form-group row'>
-                                <label for='university' class='col-sm-2 col-form-label'>University</label>
-                            <div class='col-sm-10'>
+                              <label for='university' class='col-sm-2 col-form-label'>University</label>
+                              <div class='col-sm-10'>
                                 <input type='text' class='form-control' id='university' name='university' placeholder='University' required>
-                            </div>
+                              </div>
                           	</div>
 
-							<div class='form-group row'>
-                                <label for='degree' class='col-sm-2 col-form-label'>Degree</label>
-                            <div class='col-sm-10'>
+							              <div class='form-group row'>
+                              <label for='degree' class='col-sm-2 col-form-label'>Degree</label>
+                              <div class='col-sm-10'>
                                 <input type='text' class='form-control' id='degree' name='degree' placeholder='Degree' required>
-                            </div>
+                              </div>
                           	</div>
 
                           	<div class='form-group row'>
@@ -92,24 +130,21 @@
                             </div>
                           	</div>
 
+                            <button type='submit' class='btn btn-primary' >Submit</button>
+                            <!-- form content end-->
 
-                                <button type='submit' class='btn btn-primary' >Submit</button>
                        </form>";
                 }
                 ?>
-
-
                         </div>
                         <div class="col-sm-2"></div>
                     </div>
               </div>
             </div>
-
-
-
         </div>
     </div>
 </div>
+<!-- body content start -->
 
 
 </body>

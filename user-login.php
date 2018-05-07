@@ -43,7 +43,7 @@
 
             <button type="submit" class="btn btn-primary" id="submit" name="submit">Login</button>
 
-            <form>
+
 
           </form>
 
@@ -56,7 +56,7 @@
 
 
   <?php
-    if(isset($POST['submit'])) {
+    if(isset($_POST['submit'])) {
       user_login();
     }
   ?>
@@ -79,7 +79,7 @@
 
         $token = generate_token();
 
-        setcookie('csrf_token', $token, time() + 300, '/', 'www.csrfprotect.com',true);
+        setcookie('csrf_token', $token, time() + 300, '/', 'localhost',true);
 
         header("Location:user-profile.php");
         exit;

@@ -24,13 +24,13 @@
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="index.php">CSRF Protection Double Submit Cookies</a>
+            <a class="navbar-brand" href="index.php">CSRF Protection</a>
           </div>
           <ul class="nav navbar-nav">
 
             <?php
               if(!isset($_COOKIE['session_cookie'])) {
-                echo "<li><a href='user-profile.php'> &nbsp;&nbsp;&nbsp;&nbsp;Profile </a></li>";
+                echo "<li><a href='user-profile.php'></t>Profile</t></a></li>";
               }
             ?>
 
